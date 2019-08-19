@@ -1,6 +1,5 @@
 package com.cch.seckill.service.redis;
 
-import com.cch.seckill.exception.GlobalException;
 import com.cch.seckill.service.redis.key.KeyPrefix;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
