@@ -1,5 +1,6 @@
 package com.cch.seckill.controller;
 
+import com.cch.seckill.service.query.SeckillUserService;
 import com.cch.seckill.service.query.UserService;
 import com.cch.seckill.service.model.LoginVo;
 import com.cch.seckill.service.result.Result;
@@ -16,11 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController {
 
     @Autowired
-    private UserService userService;
+    private SeckillUserService seckillUserService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_UTF8_VALUE, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public Result<String> login(HttpServletResponse response, LoginVo loginVo) {
-        String token = userService.login(response, loginVo);
+        String token = seckillUserService.login(response, loginVo);
         return Result.success(token);
     }
 

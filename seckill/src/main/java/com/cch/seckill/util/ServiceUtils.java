@@ -2,6 +2,8 @@ package com.cch.seckill.util;
 
 import com.alibaba.fastjson.JSON;
 
+import java.util.UUID;
+
 public class ServiceUtils {
 
     public static <T> T stringToBean(String str, Class<T> clazz) {
@@ -32,6 +34,10 @@ public class ServiceUtils {
         } else {
             return JSON.toJSONString(value);
         }
+    }
+
+    public static String UUID() {
+        return UUID.randomUUID().toString().replace("-", "");
     }
 
 }
