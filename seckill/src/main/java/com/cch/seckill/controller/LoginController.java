@@ -1,8 +1,7 @@
 package com.cch.seckill.controller;
 
-import com.cch.seckill.service.query.SeckillUserService;
-import com.cch.seckill.service.query.UserService;
 import com.cch.seckill.service.model.LoginVo;
+import com.cch.seckill.service.query.SeckillUserService;
 import com.cch.seckill.service.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

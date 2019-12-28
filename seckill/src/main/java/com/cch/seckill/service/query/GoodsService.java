@@ -6,6 +6,8 @@ import com.cch.seckill.service.model.GoodsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GoodsService {
 
@@ -23,4 +25,11 @@ public class GoodsService {
         return ret > 0;
     }
 
+    public List<GoodsVo> goodsVoList() {
+        return goodsDao.goodsVoList();
+    }
+
+    public GoodsVo getGoodsVoByGoodsId(long goodsId) {
+        return goodsDao.getGoodsVoByGoodsId(goodsId);
+    }
 }
