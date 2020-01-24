@@ -9,6 +9,7 @@ import com.cch.seckill.service.redis.key.SeckillUserKey;
 import com.cch.seckill.service.result.CodeMsg;
 import com.cch.seckill.util.MD5Util;
 import com.cch.seckill.util.ServiceUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,4 +71,15 @@ public class SeckillUserService {
         response.addCookie(cookie);
     }
 
+    public SeckillUser getByToken(HttpServletResponse response, String token) {
+        if (StringUtils.isEmpty(token)) {
+            return null;
+        }
+        SeckillUser user = redisService.get(SeckillUserKey.token, token, SeckillUser.class);
+        // 延长有效期
+        if (user != null) {
+            addCookie(response, token, user);
+        }
+        return user;
+    }
 }
